@@ -1,8 +1,10 @@
-# SuperNEMO Lazarus Module
+# SuperNEMO Lazarus Module with CNN
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/S._Apollinare_Nuovo_Resurr_Lazzaro.jpg/436px-S._Apollinare_Nuovo_Resurr_Lazzaro.jpg" alt="drawing" width="200"/>
 
-*Paolo Franchini 2020* - p.franchini@imperial.ac.uk
+Added a CNN-based method to *Paolo Franchini* (p.franchini@imperial.ac.uk) module to resurrect dead cells.
+
+Additional requirements: frugally-deep header-only library (https://github.com/Dobiasd/frugally-deep) to convert .json CNN architecture (trained in Python) in C++.
 
 ---
 
