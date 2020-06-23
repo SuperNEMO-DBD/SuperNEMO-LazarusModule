@@ -3,10 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 with open('efficiency_BETWEEN.txt') as f:
 =======
 with open('efficiency.txt') as f:
 >>>>>>> Working version of CNN module for dead cells
+=======
+with open('efficiency.txt') as f:
+>>>>>>> df1dac5d256659d41d5698aebced357da2e7958b
     lines = f.readlines()
     dead_cells = [line.split()[0] for line in lines]
     efficiency = [line.split()[1] for line in lines]
@@ -31,10 +35,14 @@ ax1.plot(dead_cells,efficiency, color='green', label='Efficiency', marker='o')
 ax1.plot(dead_cells,zero, color='red', label='Zero reconstructed tracks', marker='o')
 ax1.plot(dead_cells,single, color='yellow', label='Single track', marker='o')
 <<<<<<< HEAD
+<<<<<<< HEAD
 ax1.plot(dead_cells,more, color='blue', label='More than two reconstructed tracks', marker='o')
 =======
 ax1.plot(dead_cells,more, color='blue', label='More than one reconstructed track', marker='o')
 >>>>>>> Working version of CNN module for dead cells
+=======
+ax1.plot(dead_cells,more, color='blue', label='More than one reconstructed track', marker='o')
+>>>>>>> df1dac5d256659d41d5698aebced357da2e7958b
 
 leg = ax1.legend(loc='upper left', fontsize='small')
 
