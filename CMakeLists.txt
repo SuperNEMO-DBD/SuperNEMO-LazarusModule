@@ -4,6 +4,10 @@
 cmake_minimum_required(VERSION 3.3)
 project(LazarusModule)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 find_package(Falaise REQUIRED)
 
 # Build a dynamic library from our sources
@@ -27,9 +31,9 @@ target_link_libraries(LazarusModule
 # Configure example pipeline script for use from the build dir
 configure_file("LazarusModule.conf.in" "LazarusModule.conf" @ONLY)
 
-file(COPY official-2.0.0_only_calibration.conf DESTINATION ${PROJECT_BINARY_DIR})
-file(COPY official-2.0.0_from_CAT.conf DESTINATION ${PROJECT_BINARY_DIR})
-file(COPY random_dead_cells_100.txt DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY official-2.0.0_noCAT.conf DESTINATION ${PROJECT_BINARY_DIR})
+#file(COPY official-2.0.0_from_CAT.conf DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY list_shorts.txt DESTINATION ${PROJECT_BINARY_DIR})
 
 # Add a basic test: simulated a brio, reconstruct up to calibration and runs the module on it
 enable_testing()
@@ -42,7 +46,7 @@ add_test(NAME testLazarusModule_simulate
 
 # - Reconstruct up to calibration
 add_test(NAME testLazarusModule_reconstruct
-  COMMAND Falaise::flreconstruct -i test-sim.brio -p official-2.0.0_only_calibration.conf -o test-cal.brio
+	COMMAND Falaise::flreconstruct -i test-sim.brio -p official-2.0.0_noCAT.conf -o test-cal.brio
   WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
   )
 
@@ -51,4 +55,3 @@ add_test(NAME testLazarusModule_module
   COMMAND Falaise::flreconstruct -i test-cal.brio -p LazarusModule.conf
   WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
   )
-

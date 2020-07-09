@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+#include <algorithm>
 
 // Third Party
 #include "TFile.h"
@@ -37,6 +38,10 @@
 #include "falaise/snemo/datamodels/data_model.h"
 #include "falaise/snemo/services/services.h"
 
+//library to import CNN
+#include <fdeep/fdeep.hpp>
+#include <typeinfo>
+
 // This Project
 #include "lib/FLSimulateArgs.h"
 
@@ -56,8 +61,8 @@ class LazarusModule : public dpp::base_module {
   //! Reset the module
   virtual void reset();
 
-private: 
-  
+private:
+
   // configurable data member
   //std::string filename_output_;
 
@@ -67,5 +72,3 @@ private:
 };
 
 #endif // SIMVALMODULE_HH
-
-
