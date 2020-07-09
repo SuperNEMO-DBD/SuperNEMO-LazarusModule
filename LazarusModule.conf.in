@@ -1,4 +1,4 @@
-# Paolo Franchini 2020 - p.franchini@imperial.ac.uk
+# Matteo Ceschia 2020 - matteo.ceschia.18@ucl.ac.uk
 
 # - Configuration Metadata
 #@description Chain pipeline using a single custom module
@@ -11,7 +11,7 @@
 [name="flreconstruct.plugins" type="flreconstruct::section"]
 plugins : string[1] = "LazarusModule"
 # Adjust this path if you put the lib elsewhere
-LazarusModule.directory : string = "@PROJECT_BINARY_DIR@"
+MLResurrectionModule.directory : string = "@PROJECT_BINARY_DIR@"
 
 # - Pipeline configuration
 # Must define "pipeline" as this is the module flreconstruct will use
@@ -24,5 +24,5 @@ modules : string[1] = "Lazarus"
 # - Module configuration:
 [name="Lazarus" type="LazarusModule"]
 filename_out : string[1] = "test-output.brio"
-dead_cells : string[1] = "random_dead_cells_100.txt"	# file with a list of dead cells (side, layer, column)
-method : string[1] = "ALL" # method for the resuscitation (NONE, ALL, NEAR, BETWEEN)
+dead_cells : string[1] = "list_shorts.txt"	# file with a list of dead cells (side, layer, column)
+method : string[1] = "CNN" # method for the resuscitation (NONE, ALL, NEAR, BETWEEN)
